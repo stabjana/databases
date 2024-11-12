@@ -119,3 +119,61 @@ select count(*) as numberOfRows from employee;
 # SUBQUERY
 
 to compare values inside where statements
+
+# create user
+
+```sql
+create user 'zeke' @ 'localhost' identified by 'secret';
+```
+
+or:
+
+```sql
+create user 'zeke'@'localhost';
+set password for 'matt'@'localhost' = password('secr');
+```
+
+--- could be also server for example
+
+you can have users for one project and can assign rights to them
+
+when getting hacked, you can have the limited rights also to as a protection
+
+## with grant
+
+```sql
+grant select, insert on employeedb.employee to 'matt'@'localhost'
+```
+
+--- matt is not the enduser! maybe some layer of the program
+
+**@'localhost'** is from where you can connect it (locak machine)
+you can put '\*' then you can access it from everywhere
+or you can put an IP address to access it from outside
+or from a server (then you take localhost:serveraddress)
+or from the server in your serverroom (IP) (Backend or rest server) - then no access from outside your serverroom
+
+it grants the privileges
+
+# create user with password:
+
+```sql
+create user 'zeke' @ 'localhost' identified by 'secret';
+```
+
+show user:
+
+```sql
+select user, host, password from mysql.user where user='steffi';
+```
+
+login:
+mysql -u steffi -p
+
+show all users:
+
+```sql
+select user from mysql.user
+
+select user, host, password from mysql.user;
+```

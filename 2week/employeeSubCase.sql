@@ -68,3 +68,20 @@ select firstname, lastname, salary, case
     else 'salary >=8000' end as 'interval'
 from employee
 order by salary asc;
+
+select firstname, lastname, case
+    when salary is null then 'no value'
+    when salary < 4000 then 'less than 4000'
+    when salary < 6000 then '4000 <= salary < 6000'
+    when salary < 8000 then '6000 <= salary < 8000'
+    else 'salary >=8000' end as 'interval',
+case
+    when salary is null then 0 --- sorting key because the string would have multiple different values
+    when salary < 4000 then 1
+    when salary < 6000 then 2
+    when salary < 8000 then 3
+    else 4 end as 'type'
+from employee
+order by type asc, lastname asc, firstname asc;
+
+
