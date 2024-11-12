@@ -115,3 +115,7 @@ this is the better version for programms:
 ```sql
 select count(*) as numberOfRows from employee;
 ```
+
+# SUBQUERY
+
+to compare values inside where statements

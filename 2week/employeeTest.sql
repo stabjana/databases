@@ -51,8 +51,11 @@ select lastname, count(*) as amount from employee
 group by lastname having amount>=2
 order by amount desc, lastname asc;
 
-insert into employee (employeeId,firstname,lastname,department)
+insert into employee (employeeId,firstname,lastname,department, salary)
 values(7,'Mary','Brown','ict');
+values(9,'Mary-Ann','Smith','marketing',3400);
+values(10,'Myrte','Dickens','admin', 6700);
+values(11,'Claudia','Brown','ict', 5300);
 
 select lastname, count(*) as amount from employee 
 group by lastname having amount>=2;
@@ -116,3 +119,6 @@ select * from employee where firstname like 'Mary\%Ann'; -- get only 1 Ann with 
 select * from employee where firstname like 'Mary-Ann'; -- get only 1 Ann because - is ok
 */
 
+-- UPDATE Statements
+
+update employee set department='admin' where employeeId=3;
