@@ -45,7 +45,7 @@ select count(*) as salaryMissing from employee where salary is null; -- same thi
 select count(*)-count(salary) as  salaryMissing from employee; -- same!
 
 select count(*) as amount from employee;
-select lastname, count(*) as amount from employee group by lastname order by amount asc;
+select lastname, count(*) as amount from employee group by lastname order by amount asc; -- the "as" makes it the fieldname for the object as well
 
 select lastname, count(*) as amount from employee 
 group by lastname having amount>=2
