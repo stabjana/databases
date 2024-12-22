@@ -1,0 +1,46 @@
+{
+    "allFarmers":[
+        "select farmerId, farmerName, farmerLocation from farmer" 
+    ],
+    "allFlower":[
+        "select flowerId, flowerName, unitPrice, siteId from flower" 
+    ],
+    "getFlower":[
+        "select flowerId, flowerName, unitPrice, siteId from flower",
+        "where flowerId=?" 
+    ],
+    "getFlowerId":[
+        "select flowerId from flower flowerName = ?"
+    ],
+
+    "nextCustomerId":[
+        "select coalesce(max(customerId),0)+1 from customer"
+    ],
+    "nextOrderId":[
+        "select coalesce(max(orderId),0)+1 from customerOrder"
+    ],
+
+    "insertCustomer":[
+        "insert into customer(customerId,firstname,lastname,customerAddress)",
+        "values(?,?,?,?);" 
+    ],
+    "insertOrder":[
+        "insert into customerOrder(orderId,customerId,orderDate)",
+        "values (?,?,?)"
+    ],
+    "getOrderById":[
+        "select orderId, orderDate from customerOrder",
+        "where orderId=?"
+    ],
+
+    "inserFlowerToOrder":[
+        "insert into order_has_flower(orderId,flowerId,amount)",
+        "values (?,?,?)"
+    ],
+    "getFlowersInOrder":[
+        "select flowerId ,flowerName, unitPrice, amount,unitPrice*amount as total from flower",
+        "natural join order_has_flower",
+        "natural join customerOrder",
+        "where customerId=?"
+    ]
+}

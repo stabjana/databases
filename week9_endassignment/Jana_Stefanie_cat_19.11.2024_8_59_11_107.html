@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>tehtävät</title>
+  <style>
+    
+ #valikko button {
+   width: 20em;
+ }
+
+ section > h2, main>h1 {
+   background-color: beige;
+ }
+
+ @media print {
+    #valikko,
+    #syote,
+    #haku,
+    #kaikki,
+    #virhe {
+      page-break-inside: avoid;
+      page-break-after: always;
+      padding: 10px;
+      height: 420px;
+      border: solid grey 1px;
+    }
+
+    #kaikki {
+      height: 1000px;
+    }
+
+    body {
+      font-size: 10pt;
+    }
+    section {
+      page-break-after: always;
+    }
+    section > div:last-of-type{
+      page-break-after:avoid;
+    }
+ }
+
+ @media screen {
+   #valikko,
+   #syote,
+   #haku,
+   #kaikki,
+   #virhe {
+     page-break-inside: avoid;
+     border: solid gray 1px;
+     padding: 1em;
+     margin: 10px;
+     height: 600px;
+   }
+
+   body {
+     font-size: 12pt;
+   }
+ }
+
+
+ ul.taulu {
+   font-family: monospace;
+   font-weight: bold;
+ }
+
+ input {
+   display: inline-block;
+   height: 20px;
+   border: black solid 2px;
+ }
+
+ label {
+   display: inline-block;
+   width: 150px;
+ }
+
+ .lihavointi {
+   font-weight: bold;
+ }
+
+ div {
+   padding: 10px;
+ }
+
+ .iso {
+   font-size: 16pt;
+ }
+
+ h2 .iso {
+   font-size: 24pt;
+ }
+
+ th,
+ td {
+   padding: 10px;
+   text-align: left;
+ }
+
+ .huom {
+   padding: 1em;
+   border: dashed 1px red;
+ }
+
+ .konsolivalikko>ol>li {
+   margin-left:1em;
+   font-family: monospace;
+ }
+
+ pre, .konsolivalikko>ol {
+   width: 70%;
+   padding: 1em;
+   background-color: lightgray;
+   font-weight: bold;
+ }
+
+ .avain {
+   color:blue;
+   font-weight: bold;
+ }
+
+ .arvo{
+   color:red;
+ }
+
+ .olioalku, .olioloppu, .taulukko{
+   font-weight: bold;
+ }
+ .olio{
+   padding-left:1em;
+   padding-top:0;
+   padding-bottom: 0;
+ }
+
+ .rivi{
+   padding:0;
+ }
+
+ .arvo.varchar::before{
+    content: '\0022';
+ }
+ .arvo.varchar::after {
+   content: '\0022';
+ }
+
+ .jsondata {
+   font-family: monospace;
+ }
+
+ table.csvdata {
+   border-collapse: collapse;
+   border: solid 1px black;
+ }
+
+ table.csvdata th {
+   background-color: lightgrey;
+   border-bottom: 1px solid black;
+ }
+
+ table.csvdata td,
+ table.csvdata th {
+   border-right: 1px solid black;
+   border-left: 1px solid black;
+ }
+
+  .xmldata .elementti,
+  .xmldata .elementtiloppu {
+    padding-left: 1em;
+  }
+
+  .xmldata .kentta {
+    padding-left: 2em;
+  }
+  </style>
+</head>
+  <body>
+    <header>Stefanie Jana</header>
+    <main>
+      <h1> Tasks</h1>
+      <ol>
+      
+          <li>Create a folder for the project</li> 
+      
+          <li>Write create statements for the database</li> 
+      
+          <li>Create the database</li> 
+      
+          <li>Write Sql statements</li> 
+      
+          <li>Submit the project</li> 
+      
+      </ol>
+      
+      
+        <section class="projektinAlustusEN">
+          <h2>1 Create a folder for the project</h2>
+        
+          <div>
+     Create a folder for the project. Name the folder with
+     <strong>Jana_Stefanie_cat_project</strong>.
+  </div>
+  <div>
+    
+  </div>
+  
+  
+  
+        </section>
+      
+        <section class="luontilauseetSqlEN">
+          <h2>2 Write create statements for the database</h2>
+        
+          <div>
+    Write create statements to create a database called
+    <strong><span class="iso">catdb</span></strong>.
+  </div>
+  <div>Create a table <strong>cat</strong>, for
+    cat data. Table columns are:
+  </div>
+  <ul class="taulu">
+    
+    <li>
+      number
+      integer
+    </li>
+    
+    <li>
+      name
+      varchar(12)
+    </li>
+    
+    <li>
+      length
+      integer
+    </li>
+    
+    <li>
+      weightKg
+      integer
+    </li>
+    
+    <li>
+      yearOfBirth
+      integer
+    </li>
+    
+  </ul>
+  <div>
+     All columns are mandatory. The primary key is <strong>number</strong>.
+  </div>
+  <div>
+    Add two insert statements into the create statements for testing.
+  </div>
+  <div>
+    Create user <strong> leo@localhost
+    </strong> with password <strong> nKHXK0Qa</strong>.
+    Grant all necessary privileges to the user.
+  </div>
+  
+  <div class="huom">
+    
+    <div>
+      Save all necessary create statements
+      
+      
+      
+      into a sql file
+      <strong>Jana_Stefanie_cat_createStatements.sql</strong>
+      
+    </div>
+    
+  </div>
+        </section>
+      
+        <section class="luoTietokantaEN">
+          <h2>3 Create the database</h2>
+        
+            <div>
+      Create the database with the create statements
+      .
+    </div> 
+        </section>
+      
+        <section class="sqltehtavatEN">
+          <h2>4 Write Sql statements</h2>
+        
+             <div>
+       After each operation check the content of the database by selecting all data from the table.
+     </div>
+    <div>Write sql statements, with which you can 
+      <strong>insert</strong>, <strong>update</strong>, 
+      <strong>delete</strong> and <strong>select</strong> the cat data.
+    </div>
+    <div class="huom">Save sql statements into project folder as a sql file named <strong>
+        Jana_Stefanie_cat_sqlStatements.sql</strong>.
+    </div>
+    <h3>Insert data to the database</h3>
+    <div>
+      Insert following data to the <strong>cat</strong> database
+    </div>
+    
+      
+
+<div id="haekaikki">
+  <table>
+    <thead>
+      <tr>
+        
+          <th>
+            number
+          </th>
+          
+          <th>
+            name
+          </th>
+          
+          <th>
+            length
+          </th>
+          
+          <th>
+            weightKg
+          </th>
+          
+          <th>
+            yearOfBirth
+          </th>
+          
+      </tr>
+    </thead>
+    </tbody>
+    
+      <tr>
+        
+          <td>
+            2
+          </td>
+          
+          <td>
+            Fatzo
+          </td>
+          
+          <td>
+            42
+          </td>
+          
+          <td>
+            10
+          </td>
+          
+          <td>
+            2012
+          </td>
+          
+      </tr>
+      
+      <tr>
+        
+          <td>
+            5
+          </td>
+          
+          <td>
+            Puma
+          </td>
+          
+          <td>
+            33
+          </td>
+          
+          <td>
+            4
+          </td>
+          
+          <td>
+            2000
+          </td>
+          
+      </tr>
+      
+      <tr>
+        
+          <td>
+            1
+          </td>
+          
+          <td>
+            Fluffy
+          </td>
+          
+          <td>
+            50
+          </td>
+          
+          <td>
+            15
+          </td>
+          
+          <td>
+            2005
+          </td>
+          
+      </tr>
+      
+      <tr>
+        
+          <td>
+            3
+          </td>
+          
+          <td>
+            Lion II
+          </td>
+          
+          <td>
+            40
+          </td>
+          
+          <td>
+            5
+          </td>
+          
+          <td>
+            2011
+          </td>
+          
+      </tr>
+      
+      <tr>
+        
+          <td>
+            7
+          </td>
+          
+          <td>
+            Hairball
+          </td>
+          
+          <td>
+            35
+          </td>
+          
+          <td>
+            7
+          </td>
+          
+          <td>
+            2015
+          </td>
+          
+      </tr>
+      
+      <tr>
+        
+          <td>
+            6
+          </td>
+          
+          <td>
+            Zebra
+          </td>
+          
+          <td>
+            30
+          </td>
+          
+          <td>
+            6
+          </td>
+          
+          <td>
+            2018
+          </td>
+          
+      </tr>
+      
+      <tr>
+        
+          <td>
+            4
+          </td>
+          
+          <td>
+            Cute
+          </td>
+          
+          <td>
+            32
+          </td>
+          
+          <td>
+            3
+          </td>
+          
+          <td>
+            1995
+          </td>
+          
+      </tr>
+      
+        </tbody>
+  </table>
+</div>
+
+  
+    <h3>Getting data</h3>
+    <h4>Select all columns</h4>
+    <div>
+      Create select statement with which you get all data of the cats. 
+      All columns should be included in the resultset.
+    </div>
+    <div>
+      Write a select statement, with which you get all data of the cats.
+      Include into the resultset only the columns
+      <strong>number</strong>, <strong>yearOfBirth</strong>, <strong>name</strong>.
+    </div>
+    <h4>Select</h4>
+    
+    <div>
+      Select all cats, where the 
+      <strong>name</strong> is <strong> Fluffy</strong>
+    </div>
+    
+    <div>
+      Select all cats, where the 
+      <strong>name</strong> is <strong> Hairball</strong>
+    </div>
+    
+    <div>
+      Select all cats, where the 
+      <strong>yearOfBirth</strong> is <strong> 1995</strong>
+    </div>
+    
+    
+   
+      <h3>Update data</h3>
+      <div class="huom">
+        To see the efect of the operations, you might have to add some new data to the table before executing the operation.
+      </div>
+      
+      <div>
+        Update cat
+        (<strong>number</strong> is <strong> 4</strong>).
+        New data is:  
+        <strong>weightKg</strong> is <strong> 3</strong> and <strong>name</strong> is <strong> Fatzo</strong>
+      </div>
+      
+      <div>
+        Update cat
+        (<strong>number</strong> is <strong> 1</strong>).
+        New data is:  
+        <strong>length</strong> is <strong> 30</strong> and <strong>name</strong> is <strong> Fatzo</strong>
+      </div>
+      
+      
+      <div>
+        Update cat
+        (<strong>number</strong> on <strong> 5</strong>).
+        New data is:
+        <strong>length</strong> is <strong> 40</strong> and <strong>weightKg</strong> is <strong> 7</strong> and <strong>yearOfBirth</strong> is <strong> 2015</strong>
+      </div>
+      
+      <div>
+        Update cat
+        (<strong>number</strong> on <strong> 1</strong>).
+        New data is:
+        <strong>yearOfBirth</strong> is <strong> 2012</strong> and <strong>length</strong> is <strong> 40</strong> and <strong>name</strong> is <strong> Puma</strong>
+      </div>
+      
+   
+       <h3>Delete data</h3>
+       <div class="huom">
+         To see the efect of the operations, you might have to add some new data to the table before executing the
+         operation.
+        </div>
+       
+       <div>
+         Delete cat, where <strong>number</strong> is <strong>3</strong>
+       </div>
+       
+       <div>
+         Delete cat, where <strong>number</strong> is <strong>7</strong>
+       </div>
+       
+       <div>
+         Delete all cats, where
+         <strong>yearOfBirth</strong> is <strong> 1995</strong>
+       </div>
+       <div>
+         Delete all cats, where
+         <strong>yearOfBirth</strong> is <strong> 2015</strong> and <strong>weightKg</strong> is <strong> 10</strong>
+       </div>
+       <div>
+         Delete all cats, where
+         <strong>length</strong> is <strong> 50</strong> and <strong>name</strong> is <strong> Puma</strong> and <strong>weightKg</strong> is <strong> 6</strong>
+       </div>
+        </section>
+      
+        <section class="palautusEN">
+          <h2>5 Submit the project</h2>
+        
+          <div>
+    Submit your project folder
+    <strong>Jana_Stefanie_cat_project</strong>
+    acording to instructions given separately.
+     
+    
+  </div>
+  
+  
+
+  
+
+  
+        </section>
+        
+    </main> 
+  </body>
+</html>
